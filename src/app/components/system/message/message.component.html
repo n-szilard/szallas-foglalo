@@ -1,1 +1,11 @@
-<p>message works!</p>
+<div *ngIf="message" class="position-fixed bottom-0 end-0 p-3 fs-5" id="messageToast">
+    <div class="align-items-center bg-{{message.severity}} border-0 p-3 rounded">
+        <div class="toast-header">
+            <i class="bi {{message.icon}}"></i>&nbsp;
+            <strong>{{message.title}}</strong>
+        </div>
+        <div class="toast-body">
+            {{message.message}}
+        </div>
+    </div>
+</div>
