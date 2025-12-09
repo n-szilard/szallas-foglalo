@@ -42,11 +42,18 @@ export class NavbarComponent implements OnInit {
       },
 
       ...(isLoggedIn) ? [
+        
+        ...(this.isAdmin) ? [
+          {
+            name: 'Szállás feltöltés',
+            url: 'szallasupload'
+          },
+        ] : [],
         {
           name: 'Kilépés',
           url: 'logout',
           icon: 'bi-door-open'
-        }
+        },
       ] : [
         {
           name: 'Regisztráció',
