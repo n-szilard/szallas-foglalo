@@ -1,0 +1,35 @@
+<div class="booking-box shadow-sm p-4 rounded">
+
+    <h4 class="fw-bold mb-3">Foglalás</h4>
+  
+
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Érkezés</label>
+      <input type="date" class="form-control" [(ngModel)]="checkIn">
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Távozás</label>
+      <input type="date" class="form-control" [(ngModel)]="checkOut">
+    </div>
+  
+ 
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Személyek száma</label>
+      <input type="number" min="1" class="form-control" [(ngModel)]="persons">
+    </div>
+  
+    
+    <div class="price-box p-3 rounded d-flex justify-content-between align-items-center mb-3">
+      <span class="fw-semibold">Végösszeg:</span>
+      <span class="fw-bold fs-4 text-primary">{{ totalPrice | number }} Ft</span>
+    </div>
+  
+ 
+    <button class="btn btn-primary btn-lg w-100 py-2"
+            (click)="submitBooking()">
+      Foglalás
+    </button>
+  
+  </div>
+  

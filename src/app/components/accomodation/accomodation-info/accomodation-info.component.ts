@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-accomodation-info',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,RouterModule
   ],
   templateUrl: './accomodation-info.component.html',
   styleUrl: './accomodation-info.component.scss'
@@ -16,6 +17,7 @@ export class AccomodationInfoComponent {
     rating: 8.2,
     reviewText: "Nagyon jó (7433 értékelés)",
     address: "6500 Baja, Miami Beach",
+    price: 40000,
 
     features: [
       { title: "Nagyszerű elhelyezkedés", desc: "A vendégek kedvelik a környéket." },
