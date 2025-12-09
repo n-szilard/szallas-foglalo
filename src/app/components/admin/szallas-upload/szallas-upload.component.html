@@ -2,34 +2,43 @@
     <h3 class="mb-4">Szállás feltöltés</h3>
 
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="name" placeholder="">
+        <input type="text" class="form-control" id="name" placeholder="" [(ngModel)]="newHotel.name">
         <label for="name" class="form-label">Név: </label>
     </div>
 
     <div class="form-floating mb-3">
-        <textarea class="form-control" id="description" placeholder="" style="height: 100px;"></textarea>
+        <textarea class="form-control" id="description" placeholder="" style="height: 100px;" [(ngModel)]="newHotel.description"></textarea>
         <label for="description" class="form-label">Leírás: </label>
     </div>
 
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="address" placeholder="">
+        <input type="text" class="form-control" id="address" placeholder="" [(ngModel)]="newHotel.address">
         <label for="address" class="form-label">Cím: </label>
     </div>
 
     <h4>Ár és kapacitás</h4>
     <div class="input-group mb-3 input-group-lg">
-        <input type="number" class="form-control text-end" id="capacity" min="1" placeholder="">
+        <input type="number" class="form-control text-end" id="capacity" min="1" placeholder="" [(ngModel)]="newHotel.capacity">
         <span class="input-group-text">Fő</span>
-        <input type="number" class="form-control text-end" id="price" min="0" placeholder="">
+        <input type="number" class="form-control text-end" id="price" min="0" placeholder="" [(ngModel)]="newHotel.basePrice">
         <span class="input-group-text">Ft/fő/éj</span>
     </div>
 
     <div class="d-flex mb-3 justify-content-between">
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="rememberme" placeholder="" checked>
+            <input type="checkbox" class="form-check-input" id="rememberme" placeholder="" checked [(ngModel)]="newHotel.active">
             <label for="rememberme">Szállás aktív</label>
         </div>
     </div>
 
-    <button class="btn btn-primary">Feltöltés</button>
+    <h4>Képek</h4>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Töltse fel a képeket a szállásáról</label>
+        <input class="form-control mb-2" type="file" id="formFile" multiple (change)="onFileSelected($event)">
+        <button class="btn btn-danger btn-sm" (click)="clearPictures()">Képek törlése</button>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="upload()">Feltöltés az oldalra</button>
+    </div>
 </div>
