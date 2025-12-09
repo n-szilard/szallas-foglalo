@@ -7,8 +7,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active">Home</a>
+                <li class="nav-item" *ngFor="let item of navItems;">
+                    <a class="nav-link active" routerLink="{{item.url}}">
+                        <i *ngIf="item.icon" class="bi {{item.icon}}"></i>&nbsp;{{item.name}}
+                    </a>
                 </li>
             </ul>
         </div>

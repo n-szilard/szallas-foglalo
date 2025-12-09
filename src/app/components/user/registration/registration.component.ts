@@ -47,7 +47,7 @@ export class RegistrationComponent {
           "name": this.newUser.name,
           "url": "localhost",
           "email": this.newUser.email,
-          "company": "Oláh család pizzéria",
+          "company": "Szállás foglaló",
           "password": this.newUser.password
         }
       }

@@ -43,7 +43,8 @@ export class LoginComponent {
       }
 
       this.auth.login(JSON.stringify(res.data));
-      this.router.navigate(['/pizzalist']);
+      this.message.show('success', 'Üdvözöljük!', 'Sikeres belépés')
+      this.router.navigate(['/home']);
     });
   }
 }
