@@ -1,6 +1,50 @@
+.booking-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 15px;
+  padding: 20px;
+}
 
-  
-  .price-box {
-    border: 1px solid #dcdcdc;
-  }
-  
+
+.short-input {
+  max-width: 300px;
+  width: 100%;
+}
+
+
+.booking-calendar {
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+}
+
+.booking-calendar ::ng-deep .fc {
+  height: 500px; 
+}
+
+
+.booking-calendar ::ng-deep .available-day .fc-daygrid-day-frame {
+  background-color: #1e7e34 !important;
+  color: #fff !important;
+}
+
+.booking-calendar ::ng-deep .booked-day .fc-daygrid-day-frame {
+  background-color: #c82333 !important;
+  color: #fff !important;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+
+.booking-calendar ::ng-deep .selected-day .fc-daygrid-day-frame {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
+
+
+.booking-calendar ::ng-deep .fc-col-header-cell,
+.booking-calendar ::ng-deep .fc-daygrid-day-number {
+  color: #fff;
+}
