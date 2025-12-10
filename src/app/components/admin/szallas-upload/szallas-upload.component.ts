@@ -33,13 +33,27 @@ export class SzallasUploadComponent {
   ) {}
 
   upload() {
+    if (this.newHotel.name == '' || this.newHotel.description == '' || this.newHotel.address == '' || this.newHotel.capacity == 0 || this.newHotel.basePrice == 0) {
+      this.message.show('danger', 'Hiba', 'Nem adtál meg minden adatot!')
+      return;
+    }
 
+    if (this.newHotel.capacity <= 0 ||  this.newHotel.basePrice <= 0) {
+      this.message.show('danger', 'Hiba', 'Nem megfelelő adatokat adtál meg!');
+      return;
+    }
+
+    this.api.insert('accomodations', this.newHotel).then(res => {
+      this.message.show('success', 'Ok', 'A szállás hozzáadva');
+    })
   }
 
   clearPictures() {
     
   }
 
+
+  //TODO: kép feltöltés
   uploadFile() {
 
   }

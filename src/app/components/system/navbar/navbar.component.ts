@@ -46,7 +46,13 @@ export class NavbarComponent implements OnInit {
         ...(this.isAdmin) ? [
           {
             name: 'Szállás feltöltés',
-            url: 'szallasupload'
+            url: 'szallasupload',
+            icon: 'bi-plus-circle'
+          },
+          {
+            name: 'Szállások kezelése',
+            url: 'szallaslist',
+            icon: 'bi-pencil'
           },
         ] : [],
         {

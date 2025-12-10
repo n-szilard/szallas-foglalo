@@ -9,6 +9,7 @@ import { HomeComponent } from './components/system/home/home.component';
 import { AccomodationInfoComponent } from './components/accomodation/accomodation-info/accomodation-info.component';
 import { SzallasUploadComponent } from './components/admin/szallas-upload/szallas-upload.component';
 import { BookingComponent } from './components/accomodation/booking/booking.component';
+import { SzallasListComponent } from './components/admin/szallas-list/szallas-list.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'info/:id', component: AccomodationInfoComponent},
     { path: 'szallasupload', component: SzallasUploadComponent},
+    { path: 'szallaslist', component: SzallasListComponent},
     { path: 'booking/:id', component: BookingComponent},
 
 
