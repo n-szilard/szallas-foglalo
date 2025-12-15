@@ -10,6 +10,7 @@ import { AccomodationInfoComponent } from './components/accomodation/accomodatio
 import { SzallasUploadComponent } from './components/admin/szallas-upload/szallas-upload.component';
 import { BookingComponent } from './components/accomodation/booking/booking.component';
 import { SzallasListComponent } from './components/admin/szallas-list/szallas-list.component';
+import { UserListComponent } from './components/admin/user-list/user-list.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ export const routes: Routes = [
     { path: 'szallasupload', component: SzallasUploadComponent},
     { path: 'szallaslist', component: SzallasListComponent},
     { path: 'booking/:id', component: BookingComponent},
+    { path: 'manageusers', component: UserListComponent},
 
 
     { path: '', redirectTo: '/home', pathMatch: 'full'},

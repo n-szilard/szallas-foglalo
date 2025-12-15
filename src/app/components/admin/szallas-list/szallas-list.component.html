@@ -6,20 +6,20 @@
             <th>#</th>
             <th>Név</th>
             <th>Cím</th>
-            <th>Kapacitás</th>
-            <th>Alapár</th>
-            <th>Nyitva</th>
+            <th class="text-end">Kapacitás</th>
+            <th class="text-end">Alapár</th>
+            <th class="text-center">Nyitva</th>
             <th>Létrehozva</th>
             <th class="text-center">Módosítás</th>
         </thead>
         <tbody>
-            <tr *ngFor="let accomodation of accomodations; index as i">
+            <tr vAlign="middle" *ngFor="let accomodation of accomodations; index as i">
                 <td>{{i+1}}</td>
                 <td>{{accomodation.name}}</td>
                 <td>{{accomodation.address}}</td>
-                <td>{{accomodation.capacity}}</td>
-                <td>{{accomodation.basePrice}}</td>
-                <td>{{accomodation.active}}</td>
+                <td class="text-end">{{accomodation.capacity}} fő</td>
+                <td class="text-end">{{accomodation.basePrice}} Ft</td>
+                <td class="text-center">{{accomodation.active ? 'Nyitva' : 'Zárva'}}</td>
                 <td>{{accomodation.createdAt}}</td>
                 <td class="text-center">
                     <button  (click)="selectHotel(accomodation.id)" class="btn btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
