@@ -54,6 +54,11 @@ export class NavbarComponent implements OnInit {
             url: 'szallaslist',
             icon: 'bi-pencil'
           },
+          {
+            name: 'Felhasználók kezelése',
+            url: 'manageusers',
+            icon: 'bi-person-fill-gear'
+          }
         ] : [],
         {
           name: 'Kilépés',
