@@ -14,7 +14,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class SzallasUploadComponent {
 
-  selectedFiles?: FileList;
+  selectedFiles: File[] = [];
 
   newHotel: Accomodation = {
     id: 0,
@@ -46,6 +46,10 @@ export class SzallasUploadComponent {
     this.api.insert('accomodations', this.newHotel).then(res => {
       this.message.show('success', 'Ok', 'A szállás hozzáadva');
     })
+
+    if (this.selectedFiles.length > 0) {
+      this.uploadFiles();
+    }
   }
 
   clearPictures() {
@@ -54,12 +58,20 @@ export class SzallasUploadComponent {
 
 
   //TODO: kép feltöltés
-  uploadFile() {
+  uploadFiles() {
+    const formData = new FormData();
 
+    this.selectedFiles?.forEach(file => {
+      formData.append('images', file);
+    });
+
+    this.api.upload(formData).then(res => {
+      
+    })
   }
 
 
   onFileSelected(event: any) {
-    this.selectedFiles = event.target.files;
+    this.selectedFiles = Array.from(event.target.files);
   }
 }
