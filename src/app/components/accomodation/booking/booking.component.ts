@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FullCalendarModule } from '@fullcalendar/angular';
+import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { ApiService } from '../../../services/api.service';
 import { Accomodation } from '../../../interfaces/accomodation';
 import { AuthService } from '../../../services/auth.service';
 import { MessageService } from '../../../services/message.service';
+import { DatePair } from '../../../interfaces/datePair';
 
 @Component({
   selector: 'app-booking',
@@ -18,6 +19,7 @@ import { MessageService } from '../../../services/message.service';
   styleUrls: ['./booking.component.scss']
 })
 export class BookingComponent implements OnInit {
+  @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   checkIn!: string;
   checkOut!: string;
   persons: number = 1;
@@ -34,9 +36,11 @@ export class BookingComponent implements OnInit {
     active: false
   }
 
+  bookedDateRanges: DatePair[] = [];
+
   id!: number;
 
-  bookedDates = ['2025-12-15', '2025-12-18', '2025-12-20'];
+  bookedDates: string[] = [];
 
   calendarOptions: any;
 
@@ -46,11 +50,14 @@ export class BookingComponent implements OnInit {
     private auth: AuthService,
     private message: MessageService,
     private router: Router
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.getAccomodationInfo(this.id);
+    this.getBookedDates(this.id);
 
     this.calendarOptions = {
       plugins: [dayGridPlugin, interactionPlugin],
@@ -63,7 +70,6 @@ export class BookingComponent implements OnInit {
         start: new Date().toISOString().split('T')[0]
       }
     };
-
   }
 
   selectedDates: string[] = [];
@@ -86,7 +92,7 @@ export class BookingComponent implements OnInit {
     // nincs foglalt nap ellenorzes
     const isBooked = days.some(d => this.bookedDates.includes(d));
     if (isBooked) {
-      alert('A kiválasztott időszakban van már foglalt nap!');
+      this.message.show('danger', 'Hiba', 'A kiválasztott időszakban van már foglalt nap!');
       return;
     }
 
@@ -138,7 +144,47 @@ export class BookingComponent implements OnInit {
     this.totalPrice = nights > 0 ? this.basePrice * this.persons * nights : 0;
   }
 
+  getBookedDates(accomodationId: number) {
+    this.api.selectAll('bookings/accomodationId/eq/' + accomodationId).then(res => {
+      let bookings = res.data;
+      bookings.forEach((booking: any) => {
+        this.bookedDateRanges.push(
+          {
+            start: booking.startDate.split('T')[0],
+            end: booking.endDate.split('T')[0]
+          }
+        )
+      });
+
+      this.bookedDateRanges.forEach(range => {
+        this.bookedDates = this.bookedDates.concat(this.getBookedDatesBetween(range.start, range.end))
+      })
+      if (this.calendarComponent) {
+        this.calendarComponent.getApi().render();
+      }
+    })
+  }
+
+  getBookedDatesBetween(startDate: string, endDate: string) {
+    const dates = [];
+    let currentDate = new Date(startDate);
+    const lastDate = new Date(endDate);
+
+    while (currentDate <= lastDate) {
+      const formattedDate = currentDate.toISOString().split('T')[0];
+      dates.push(formattedDate);
+
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    return dates;
+  }
+
   submitBooking() {
+    if (!this.checkOut || !this.checkIn) {
+      return;
+    }
+
     let isLoggedIn = false;
 
     this.auth.isLoggedIn$.subscribe(res => {
@@ -166,6 +212,18 @@ export class BookingComponent implements OnInit {
         "totalPrice": this.totalPrice
       }
     }
+
+    let dbData = {
+      userId: loggedInUser[0].id,
+      accomodationId: this.id,
+      startDate: this.checkIn,
+      endDate: this.checkOut,
+      persons: this.persons,
+      totalPrice: this.totalPrice,
+      status: 'Booked'
+    }
+
+    this.api.insert('bookings', dbData)
     this.api.sendMail(data);
     this.router.navigate(['/bookingconfirmed']);
   }
