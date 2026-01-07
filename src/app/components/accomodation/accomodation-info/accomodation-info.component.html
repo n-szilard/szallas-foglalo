@@ -16,12 +16,13 @@
             <span class="fw-bold fs-4">{{ selectedAccomodation.basePrice }} Ft</span><br>
             <small class="text-muted">/ fő / éj</small>
   </div>
-  <p>{{ selectedAccomodation.description }}</p>
-  <p>{{ selectedAccomodation.address }}</p>
+  <p>Kapacitás: {{ selectedAccomodation.capacity }} fő</p>
+  <p>Leírás: {{ selectedAccomodation.description }}</p>
+  <p>Cím: {{ selectedAccomodation.address }}</p>
   
 </div>
 
    
-   <button type="button" class="btn btn-primary btn-lg px-3 py-1 mt-4" [routerLink]="['/booking', 9]">
+   <button type="button" class="btn btn-primary btn-lg px-3 py-1 mt-4" (click)="bookButton()">
         Foglalás
     </button>

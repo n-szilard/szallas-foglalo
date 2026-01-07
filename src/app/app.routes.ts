@@ -11,6 +11,7 @@ import { SzallasUploadComponent } from './components/admin/szallas-upload/szalla
 import { BookingComponent } from './components/accomodation/booking/booking.component';
 import { SzallasListComponent } from './components/admin/szallas-list/szallas-list.component';
 import { UserListComponent } from './components/admin/user-list/user-list.component';
+import { BookingConfirmComponent } from './components/accomodation/booking-confirm/booking-confirm.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -24,6 +25,7 @@ export const routes: Routes = [
     { path: 'szallaslist', component: SzallasListComponent},
     { path: 'booking/:id', component: BookingComponent},
     { path: 'manageusers', component: UserListComponent},
+    { path: 'bookingconfirmed', component: BookingConfirmComponent},
 
 
     { path: '', redirectTo: '/home', pathMatch: 'full'},

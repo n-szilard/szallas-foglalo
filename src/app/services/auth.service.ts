@@ -7,7 +7,7 @@ import { BehaviorSubject, retry } from 'rxjs';
 
 export class AuthService {
 
-  private tokenName = 'pizzeria';
+  private tokenName = 'foglalo';
 
   private isLoggedIn = new BehaviorSubject<boolean>(this.hasToken());
   isLoggedIn$ = this.isLoggedIn.asObservable();

@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
 import { Accomodation } from '../../../interfaces/accomodation';
+import { MessageService } from '../../../services/message.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-accomodation-info',
@@ -25,9 +27,15 @@ export class AccomodationInfoComponent implements OnInit {
       active: false
     }
   id!: number;
+
   constructor(
     private api: ApiService,
-    private route: ActivatedRoute){}
+    private route: ActivatedRoute,
+    private router: Router,
+    private message: MessageService,
+    private auth: AuthService
+  ) {}
+
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'))
     this.selectAcc(this.id);
@@ -37,5 +45,19 @@ export class AccomodationInfoComponent implements OnInit {
     this.api.selectOne('accomodations', id).then(res => {
       this.selectedAccomodation = res.data[0];
     })
+  }
+
+  bookButton() {
+    let isLoggedIn = false;
+
+    this.auth.isLoggedIn$.subscribe(res => {
+      isLoggedIn = res;
+    });
+
+    if (!isLoggedIn) {
+      this.message.show('danger', 'Nincs bejelentkezve', 'A foglaláshoz hozzon létre fiókot vagy jelentkezzen be!');
+      return;
+    }
+    this.router.navigate(['/booking', this.id]);
   }
 }

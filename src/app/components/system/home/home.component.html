@@ -12,164 +12,20 @@
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
+                <div class="col" *ngFor="let hotel of accomodations; index as i">
                     <div class="card shadow-sm">
                         <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
                         <div class="card-body">
+                            <h5 class="card-title">{{hotel.name}}</h5>
                             <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
+                                {{hotel.description}}
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 1]">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', hotel.id]">
                                         További információ
                                     </button>
                                 </div>
-                                <small class="text-body-secondary">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 2]">
-                                        További információ
-                                    </button>
-                                </div>
-                                <small class="text-body-secondary">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 3]">
-                                        További információ
-                                    </button>
-                                </div>
-                                <small class="text-body-secondary">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 4]">
-                                        További információ
-                                    </button>
-                                </div>
-                                <small class="text-body-secondary">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 5]">
-                                        További információ
-                                    </button>
-                                </div>
-                                <small class="text-body-secondary">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 6]">
-                                        További információ
-                                    </button>
-                                </div>
-                                <small class="text-body-secondary">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 7]">
-                                        További információ
-                                    </button>
-                                </div>
-                                <small class="text-body-secondary">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 8]">
-                                        További információ
-                                    </button>
-                                </div>
-                                <small class="text-body-secondary">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
-                        <div class="card-body">
-                            <p class="card-text">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quos deleniti doloribus? Distinctio expedita deleniti totam libero adipisci. Nam quia illum magni temporibus repellendus id? Eligendi modi quas itaque necessitatibus?
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', 9]">
-                                        További információ
-                                    </button>
-                                </div>
-                                <small class="text-body-secondary">9 mins</small>
                             </div>
                         </div>
                     </div>
