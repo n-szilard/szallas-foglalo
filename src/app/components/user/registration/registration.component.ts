@@ -38,6 +38,8 @@ export class RegistrationComponent {
         this.message.show('danger', 'Hiba', res.message);
         return;
       }
+      let today = new Date();
+      let date = today.toLocaleDateString('hu-HU');
 
       let data = {
         "template": "registration",
@@ -48,7 +50,7 @@ export class RegistrationComponent {
           "url": "localhost",
           "email": this.newUser.email,
           "company": "Szállás foglaló",
-          "password": this.newUser.password
+          "createdAt": date
         }
       }
 
