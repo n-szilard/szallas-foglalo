@@ -44,9 +44,8 @@ export class ApiService {
   }
 
   async upload(formData: FormData, insertId: number): Promise<ApiResponse> {
-    formData.append('insertId', insertId.toString())
     try {
-      const response = await axios.post(`${this.SERVER}/upload`, formData);
+      const response = await axios.post(`${this.SERVER}/upload/`+insertId, formData);
       return {
         status: 200,
         data: response.data

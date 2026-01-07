@@ -34,6 +34,8 @@ export class SzallasUploadComponent {
 
   upload() {
 
+    let insertId = 0;
+
     if (this.newHotel.name == '' || this.newHotel.description == '' || this.newHotel.address == '' || this.newHotel.capacity == 0 || this.newHotel.basePrice == 0) {
       this.message.show('danger', 'Hiba', 'Nem adtál meg minden adatot!')
       return;
@@ -45,13 +47,13 @@ export class SzallasUploadComponent {
     }
 
     this.api.insert('accomodations', this.newHotel).then(res => {
-      this.newHotel.id = res.data.insertId
+      insertId = res.data.insertId
+      console.log(insertId)
       this.message.show('success', 'Ok', 'A szállás hozzáadva');
+      if (this.selectedFiles.length > 0) {
+        this.uploadFiles(insertId);
+      }
     })
-
-    if (this.selectedFiles.length > 0) {
-      this.uploadFiles(this.newHotel.id);
-    }
 
     this.newHotel = {
       id: 0,
@@ -71,6 +73,7 @@ export class SzallasUploadComponent {
 
   //TODO: kép feltöltés
   uploadFiles(accomodationId: number) {
+    console.log(accomodationId)
     const formData = new FormData();
 
     this.selectedFiles?.forEach(file => {

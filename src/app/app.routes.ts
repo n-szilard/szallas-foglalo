@@ -12,6 +12,7 @@ import { BookingComponent } from './components/accomodation/booking/booking.comp
 import { SzallasListComponent } from './components/admin/szallas-list/szallas-list.component';
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { BookingConfirmComponent } from './components/accomodation/booking-confirm/booking-confirm.component';
+import { BookingsComponent } from './components/accomodation/bookings/bookings.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -26,6 +27,7 @@ export const routes: Routes = [
     { path: 'booking/:id', component: BookingComponent},
     { path: 'manageusers', component: UserListComponent},
     { path: 'bookingconfirmed', component: BookingConfirmComponent},
+    { path: 'bookings', component: BookingsComponent},
 
 
     { path: '', redirectTo: '/home', pathMatch: 'full'},

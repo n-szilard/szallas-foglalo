@@ -61,6 +61,11 @@ export class NavbarComponent implements OnInit {
           }
         ] : [],
         {
+          name: 'Foglalásaim',
+          url: 'bookings',
+          icon: 'bi-book'
+        },
+        {
           name: 'Kilépés',
           url: 'logout',
           icon: 'bi-door-open'
