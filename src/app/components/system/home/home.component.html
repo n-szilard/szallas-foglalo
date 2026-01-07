@@ -4,7 +4,9 @@
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Szállásfoglaló</h1>
                 <p class="lead">
-                    Szeretettel köszöntünk szállásfoglaló oldalunkon! Örömmel segítünk megtalálni az igényeidnek leginkább megfelelő pihenőhelyet, legyen szó rövid kikapcsolódásról vagy hosszabb tartózkodásról. Böngéssz kínálatunkban, és válaszd ki azt a szállást, ahol igazán otthon érezheted magad.
+                    Szeretettel köszöntünk szállásfoglaló oldalunkon! Örömmel segítünk megtalálni az igényeidnek
+                    leginkább megfelelő pihenőhelyet, legyen szó rövid kikapcsolódásról vagy hosszabb tartózkodásról.
+                    Böngéssz kínálatunkban, és válaszd ki azt a szállást, ahol igazán otthon érezheted magad.
                 </p>
             </div>
         </div>
@@ -12,17 +14,24 @@
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col" *ngFor="let hotel of accomodations; index as i">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Keresés" aria-label="Keresés"
+                    aria-describedby="basic-addon1" [(ngModel)]="searchQuery" (ngModelChange)="filterAccomodations()">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+                </div>
+                <div class="col" *ngFor="let hotel of filteredAccomodations; index as i">
                     <div class="card shadow-sm">
                         <img src='/assets/images/slider_01.jpg' class="img-fluid rounded shadow-sm" alt="">
                         <div class="card-body">
                             <h5 class="card-title">{{hotel.name}}</h5>
                             <p class="card-text">
-                                {{hotel.description}}
+                                {{hotel.basePrice}} Ft / fő / éj <br>
+                                Max.: {{hotel.capacity}} fő
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/info', hotel.id]">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                        [routerLink]="['/info', hotel.id]">
                                         További információ
                                     </button>
                                 </div>
