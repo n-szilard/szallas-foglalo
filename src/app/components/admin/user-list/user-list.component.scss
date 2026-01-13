@@ -1,0 +1,344 @@
+.p-3 {
+  padding: 2rem !important;
+  max-width: 1400px;
+  margin: 2rem auto;
+  background: #2c3e50; // Sötét háttér
+  border-radius: 8px;
+}
+
+h3 {
+  color: #ffffff; // FEHÉR CÍM
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 4px solid #0066cc;
+}
+
+.table {
+  background: #34495e; // Sötét táblázat háttér
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 2px solid #1a1a1a;
+  
+  thead {
+    background: #1a1a1a;
+    
+    th {
+      color: #ffffff; // FEHÉR FEJLÉC
+      font-weight: 700;
+      padding: 1.25rem 1.5rem;
+      border: none;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+  
+  tbody {
+    tr {
+      transition: background-color 0.2s ease;
+      border-bottom: 1px solid #2c3e50;
+      
+      &:hover {
+        background-color: #3d566e;
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      td {
+        padding: 1.25rem 1.5rem;
+        vertical-align: middle;
+        color: #ffffff; // FEHÉR ADAT SZÖVEG !!!
+        font-size: 1rem;
+        font-weight: 500;
+        
+        &:first-child {
+          font-weight: 700;
+          color: #ffffff; // FEHÉR SORSZÁM
+        }
+      }
+    }
+  }
+}
+
+.btn-warning {
+  background: #ff9800;
+  border: none;
+  border-radius: 6px;
+  padding: 0.625rem 1rem;
+  color: #ffffff;
+  font-weight: 700;
+  position: relative;
+  
+  &:hover {
+    background: #f57c00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+  }
+  
+  // Tooltip "Módosítás"
+  &::after {
+    content: "Módosítás";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+  
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+.btn-danger {
+  background: #dc3545;
+  border: none;
+  border-radius: 6px;
+  padding: 0.625rem 1.25rem;
+  color: #ffffff;
+  font-weight: 700;
+  
+  &:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+  }
+}
+
+// Modal stílusok
+.modal-content {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  
+  .modal-header {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    padding: 1.75rem 2rem;
+    
+    .modal-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    
+    .btn-close {
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  
+  .modal-body {
+    padding: 2.5rem;
+    background: #ffffff;
+    
+    .form-floating {
+      margin-bottom: 1.75rem;
+      
+      .form-control {
+        border: 2px solid #cccccc;
+        border-radius: 6px;
+        padding: 1.25rem 1rem;
+        background: #ffffff;
+        color: #000000;
+        font-size: 1.05rem;
+        
+        &:focus {
+          border-color: #0066cc;
+          box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+      }
+      
+      label {
+        padding: 1.25rem 1rem;
+        color: #333333;
+        font-weight: 600;
+      }
+      
+      textarea {
+        min-height: 120px;
+      }
+    }
+    
+    h4 {
+      color: #000000;
+      font-weight: 700;
+      font-size: 1.35rem;
+      margin-top: 2rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    
+    .input-group {
+      input {
+        border: 2px solid #cccccc;
+        background: #ffffff;
+        color: #000000;
+        
+        &:focus {
+          border-color: #0066cc;
+          box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+      }
+      
+      .input-group-text {
+        background: #f5f5f5;
+        border: 2px solid #cccccc;
+        color: #000000;
+        font-weight: 700;
+      }
+    }
+    
+    .form-check {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #f9f9f9;
+      border-radius: 6px;
+      
+      .form-check-input {
+        width: 1.5rem;
+        height: 1.5rem;
+        border: 2px solid #666666;
+        cursor: pointer;
+        
+        &:checked {
+          background-color: #0066cc;
+          border-color: #0066cc;
+        }
+        
+        &:focus {
+          box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+      }
+      
+      label {
+        margin-left: 0.75rem;
+        color: #1a1a1a;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 1.05rem;
+      }
+    }
+  }
+  
+  .modal-footer {
+    border: none;
+    padding: 1.75rem 2rem;
+    background-color: #f5f5f5;
+    border-radius: 0 0 8px 8px;
+    
+    .btn {
+      border-radius: 6px;
+      padding: 0.75rem 1.75rem;
+      font-weight: 700;
+      border: none;
+      font-size: 1.05rem;
+    }
+    
+    .btn-danger {
+      background: #dc3545;
+      
+      &:hover {
+        background: #c82333;
+      }
+    }
+    
+    .btn-secondary {
+      background: #6c757d;
+      
+      &:hover {
+        background: #5a6268;
+      }
+    }
+    
+    .btn-primary {
+      background: #0066cc;
+      
+      &:hover {
+        background: #0052a3;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .table {
+    font-size: 0.9rem;
+    
+    thead th,
+    tbody td {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  .btn-warning::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .p-3 {
+    padding: 1rem !important;
+    margin: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .table {
+    font-size: 0.85rem;
+    
+    thead th,
+    tbody td {
+      padding: 0.75rem 0.5rem;
+    }
+    
+    .btn-warning,
+    .btn-danger {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .modal-content {
+    .modal-body {
+      padding: 1.5rem;
+    }
+    
+    .modal-footer {
+      flex-direction: column;
+      gap: 0.75rem;
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
