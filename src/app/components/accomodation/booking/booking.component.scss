@@ -1,14 +1,16 @@
+
 .booking-wrapper {
+  color: white;
   max-width: 900px;
   margin: 2rem auto;
   padding: 2.5rem;
-  background: white;
+  background: #2c3e50;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 h4 {
-  color: #2c3e50;
+  color: #ffffff;
   font-weight: 700;
   font-size: 1.75rem;
   margin-bottom: 2rem;
@@ -18,7 +20,7 @@ h4 {
 
 .mb-3 {
   label {
-    color: #2c3e50;
+    color: #ffffff;
     font-weight: 600;
     margin-bottom: 0.5rem;
     display: block;
@@ -43,7 +45,7 @@ h4 {
 .booking-calendar {
   max-width: 100%;
   width: 100%;
-  background: white;
+  background: #2c3e50;
   padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid #ecf0f1;
@@ -53,7 +55,7 @@ h4 {
     
     .fc-toolbar-title {
       font-size: 1.5rem;
-      color: #2c3e50;
+      color: #ffffff;
       font-weight: 700;
     }
     
@@ -85,7 +87,7 @@ h4 {
     }
     
     .fc-daygrid-day-number {
-      color: #2c3e50;
+      color: #ffffff;
       font-weight: 500;
       padding: 0.5rem;
     }
@@ -131,13 +133,13 @@ h4 {
 }
 
 .price-box {
-  background: linear-gradient(135deg, #ecf0f1, #d5dbdb);
+  background: #2c3e50;
   border: 2px solid #3498db;
   padding: 1.25rem 2rem;
   border-radius: 8px;
   
   .fw-bold {
-    color: #2c3e50;
+    color: #ffffff;
   }
   
   .text-primary {

@@ -3,6 +3,11 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
+
+body{
+    --bs-body-color: #000000 !important;
+    --bs-tertiary-bg: #ffffff !important;
+}
 em {
     color: red;
     font-weight: bold;
